@@ -7,19 +7,22 @@ export default class Response{
      * @param msg       响应的message
      * @param data      响应的数据
      */
-    constructor(code,msg,data){
-        if(!code){
+    constructor(code,msg,data) {
+        if (!code) {
             throw new Error("Code值不能为空");
         }
         this.code = code;
 
-        if(!msg){
+        if (!msg) {
             this.msg = "";
+        } else {
+            this.msg = msg;
         }
-        this.msg = msg;
 
         if(!data){
             this.data = {};
+        }else {
+            this.data = data;
         }
     }
 }

@@ -24,11 +24,14 @@ function Response(code, msg, data) {
 
     if (!msg) {
         this.msg = "";
+    } else {
+        this.msg = msg;
     }
-    this.msg = msg;
 
     if (!data) {
         this.data = {};
+    } else {
+        this.data = data;
     }
 };
 

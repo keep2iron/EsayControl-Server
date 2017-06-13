@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.onFileUploadError = onFileUploadError;
+exports.onFailed = onFailed;
 exports.onSuccess = onSuccess;
 
 var _resp_code = require('./resp_code');
@@ -16,8 +16,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  * 当文件上传失败时进行调用
  * @param res   响应实体
  */
-function onFileUploadError(res) {
-    var resp = new RESP.default(RESP.ERROR_COMMON, '上传文件失败!~');
+function onFailed(res, code, message) {
+    var resp = new RESP.default(code, message);
 
     res.writeHead(200, { 'content-type': 'text/plain;charset=utf-8' });
     res.end(JSON.stringify(resp));
@@ -26,7 +26,8 @@ function onFileUploadError(res) {
 function onSuccess(res, msg, data) {
     var resp = new RESP.default(RESP.SUCCESS, msg, data);
 
-    res.writeHead(200, { 'content-type': 'text/plain;charset=utf-8' });
-    res.end(JSON.stringify(resp));
+    res.status(200);
+    res.set('Content-Type', 'text/plain;charset=utf-8');
+    res.end(JSON.stringify(resp), 'utf-8');
 }
 //# sourceMappingURL=resp_func.js.map

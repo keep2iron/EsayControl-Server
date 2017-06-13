@@ -4,16 +4,16 @@
       <sourceFilesUrls>
         <item url="file://$PROJECT_DIR$/dist/routes/file.js" />
         <item url="file://$PROJECT_DIR$/dist/public/javascripts/main.js" />
-        <item url="file://$PROJECT_DIR$/dist/core/resp_func.js" />
+        <item url="file://$PROJECT_DIR$/dist/app.js" />
+        <item url="file://$PROJECT_DIR$/dist/bin/www.js" />
+        <item url="file://$PROJECT_DIR$/dist/public/javascripts/modernizr.js" />
         <item url="file://$PROJECT_DIR$/dist/routes/version.js" />
+        <item url="file://$PROJECT_DIR$/dist/routes/index.js" />
+        <item url="file://$PROJECT_DIR$/dist/core/module.js" />
+        <item url="file://$PROJECT_DIR$/dist/core/resp_func.js" />
         <item url="file://$PROJECT_DIR$/dist/public/javascripts/jquery-2.1.4.js" />
         <item url="file://$PROJECT_DIR$/dist/core/resp_code.js" />
         <item url="file://$PROJECT_DIR$/dist/public/javascripts/velocity.min.js" />
-        <item url="file://$PROJECT_DIR$/dist/public/javascripts/modernizr.js" />
-        <item url="file://$PROJECT_DIR$/dist/routes/index.js" />
-        <item url="file://$PROJECT_DIR$/dist/core/module.js" />
-        <item url="file://$PROJECT_DIR$/dist/app.js" />
-        <item url="file://$PROJECT_DIR$/dist/bin/www.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
@@ -32,14 +32,14 @@
       <root url="file://$PROJECT_DIR$/dist/core/base.js" />
       <root url="file://$PROJECT_DIR$/dist/routes/file.js" />
       <root url="file://$PROJECT_DIR$/dist/public/javascripts/main.js" />
-      <root url="file://$PROJECT_DIR$/dist/core/resp_func.js" />
-      <root url="file://$PROJECT_DIR$/dist/public/javascripts/jquery-2.1.4.js" />
-      <root url="file://$PROJECT_DIR$/dist/core/resp_code.js" />
-      <root url="file://$PROJECT_DIR$/dist/public/javascripts/velocity.min.js" />
       <root url="file://$PROJECT_DIR$/dist/public/javascripts/modernizr.js" />
       <root url="file://$PROJECT_DIR$/dist/routes/version.js" />
       <root url="file://$PROJECT_DIR$/dist/routes/index.js" />
       <root url="file://$PROJECT_DIR$/dist/core/module.js" />
+      <root url="file://$PROJECT_DIR$/dist/core/resp_func.js" />
+      <root url="file://$PROJECT_DIR$/dist/public/javascripts/jquery-2.1.4.js" />
+      <root url="file://$PROJECT_DIR$/dist/core/resp_code.js" />
+      <root url="file://$PROJECT_DIR$/dist/public/javascripts/velocity.min.js" />
       <root url="file://$PROJECT_DIR$/dist/app.js" />
       <root url="file://$PROJECT_DIR$/dist/bin/www.js" />
     </CLASSES>

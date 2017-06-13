@@ -6,6 +6,12 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _resp_func = require('./resp_func');
+
+var Respone = _interopRequireWildcard(_resp_func);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var DataBase = function () {
@@ -47,16 +53,25 @@ var DataBase = function () {
                 console.log('[connection connect]  succeed!');
             });
         }
+
+        /**
+         * 获取数据库中的维护的app
+         */
+
     }, {
-        key: 'test',
-        value: function test() {
-            //执行SQL语句
-            this.connection.query('SELECT 1 + 1 AS solution', function (err, rows, fields) {
-                if (err) {
-                    console.log('[query] - :' + err);
-                    return;
-                }
-                console.log('The solution is: ', rows[0].solution);
+        key: 'getApp',
+        value: function getApp() {
+            var _this = this;
+
+            return new Promise(function (resolve, reject) {
+                _this.connection.query('SELECT * FROM tbl_app', function (err, rows, fields) {
+                    if (err) {
+                        reject(err);
+                        return;
+                    }
+
+                    resolve(rows);
+                });
             });
         }
 

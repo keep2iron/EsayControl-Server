@@ -1,3 +1,5 @@
+import  * as Respone from './resp_func'
+
 export default class DataBase{
 
     /**
@@ -32,15 +34,21 @@ export default class DataBase{
         });
     }
 
-    test(){
-        //执行SQL语句
-        this.connection.query('SELECT 1 + 1 AS solution', function (err, rows, fields) {
-            if (err) {
-                console.log('[query] - :' + err);
-                return;
-            }
-            console.log('The solution is: ', rows[0].solution);
+    /**
+     * 获取数据库中的维护的app
+     */
+    getApp(){
+        return new Promise((resolve,reject)=>{
+            this.connection.query('SELECT * FROM tbl_app',function(err,rows,fields){
+                if(err){
+                    reject(err);
+                    return;
+                }
+
+                resolve(rows);
+            });
         });
+
     }
 
     /**
