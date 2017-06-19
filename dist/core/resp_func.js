@@ -16,8 +16,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  * 当文件上传失败时进行调用
  * @param res   响应实体
  */
-function onFailed(res, code, message) {
-    var resp = new RESP.default(code, message);
+function onFailed(res, message) {
+    var resp = new RESP.default(RESP.ERROR_COMMON, message);
 
     res.writeHead(200, { 'content-type': 'text/plain;charset=utf-8' });
     res.end(JSON.stringify(resp));

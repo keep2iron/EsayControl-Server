@@ -4,8 +4,8 @@ import Response,* as RESP from './resp_code';
  * 当文件上传失败时进行调用
  * @param res   响应实体
  */
-export function onFailed(res,code,message){
-    let resp = new Response(code,message);
+export function onFailed(res,message){
+    let resp = new Response(RESP.ERROR_COMMON,message);
 
     res.writeHead(200, {'content-type': 'text/plain;charset=utf-8'});
     res.end(JSON.stringify(resp));

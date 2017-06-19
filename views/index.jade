@@ -1,7 +1,115 @@
-extends layout
+doctype html
+html(lang="en")
+    head
+        meta(http-equiv="Content-Type", content="text/html; charset=UTF-8")
 
-block content
-    h5 上传apk
-    form(method='post', action='/api/file/upload', enctype='multipart/form-data')
-        input(name='inputFile', type='file', multiple='mutiple')
-        input(name='btnUp', type='submit',value='上传')
+        meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no")
+
+        title Parallax Template - Materialize
+        // CSS
+        link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
+
+        link(href="css/materialize.css", type="text/css", rel="stylesheet", media="screen,projection")
+
+        link(href="css/style.css", type="text/css", rel="stylesheet", media="screen,projection")
+    body
+        #index-banner.parallax-container
+            .section.no-pad-bot
+                .container
+                    br
+                    br
+                    h3.header.center.light 一个更简单的管理app的方式
+                    .row.center
+                        h5.header.col.s12.light Make your app update easy!
+                    .row.center
+                        a#add-app-button.btn-large.waves-effect.waves-light.red(href="javasciprt:void(0);") 开始上传一个吧
+                    br
+                    br
+
+            .parallax
+                img(src="images/bg.jpg", alt="Unsplashed background img 1")
+        .container
+            .section
+                    h3
+                        i.mdi-content-send.brown-text
+                    h4
+                        script.
+                            var data =  !{JSON.stringify(data)};
+                            console.log(data);
+                        - for(var i = 0;i < data.length;i++)
+                            .col.s12.m6.center
+                                .card.horizontal
+                                    .card-image
+                                        img(src="images/app_icon.png" style='top: 20px;left: 19%;')
+                                        div(style='position:relative;top:30px;left: 19%;') #{data[i].name}
+                                    .card-stacked
+                                        .card-content
+                                            .row
+                                                .col.version-col 本地测试
+                                                .col.version-col 线上测试版本
+                                                .col.version-col 线上版本
+                                            .row
+                                                .col.version-col
+                                                    a.btn-floating.btn-large.waves-effect.waves-light.teal.lighten-1
+                                                        i.material-icons(type='0' app-id='#{data[i].id}' app-name='#{data[i].name}' app-type='local') add
+                                                .col.version-col
+                                                    a.btn-floating.btn-large.waves-effect.waves-light.blue.lighten-1
+                                                        i.material-icons(type='1' app-id='#{data[i].id}' app-name='#{data[i].name}' app-type='releaseDebug') add
+                                                .col.version-col
+                                                    a.btn-floating.btn-large.waves-effect.waves-light.red.lighten-1
+                                                        i.material-icons(type='2' app-id='#{data[i].id}' app-name='#{data[i].name}' app-type='release') add
+                                            .row
+                                                .col.version-col
+                                                    a(href='#{data[i].localPath}').chip
+                                                        img(src='images/app_icon.png')
+                                                        Jane local-#{data[i].localVersion}
+                                                .col.version-col
+                                                    a(href='#{data[i].releaseDebugPath}').chip
+                                                        img(src='images/app_icon.png')
+                                                        Jane debug-#{data[i].releaseDebugVersion}
+                                                .col.version-col
+                                                    a(href='#{data[i].releasePath}').chip
+                                                        img(src='images/app_icon.png')
+                                                        Jane release-#{data[i].releaseVersion}
+                        -
+        div#new-version-dialog.dialog.card
+            nav.main-color
+                .nav-wrapper(style='text-align: center;')
+                    a(href='javascript:dismissDialog();').title
+            form#upload-app-form.input-field.col.s6.add-new-version-content
+                input#app_version.validate(type='text',name="app_version")
+                label(for='app_version') App版本号
+                .row
+                    a.waves-effect.waves-light.btn-large.main-color.upload-btn
+                        input.upload-file.none(type='file',name='application',accept=".apk")
+                        i.material-icons.left cloud
+                        span 上传apk
+                .row
+                    a.waves-effect.waves-light.btn-large.main-color(onclick='onUpload();')
+                        input(type='button',value='提交')
+
+        div.card#add-app-dialog.dialog
+            nav.main-color
+                .nav-wrapper(style='text-align: center;')
+                    a(href='javascript:dismissDialog();').title 添加一个新的APP
+            form#add-app-form.input-field.col.s6.add-new-version-content
+                .input-field.s12
+                    input#app_name.validate(type='text',name="app_name")
+                    label(for='app_name') App名称
+                .input-field.s12
+                    input#app_new_version.validate(type='text',name="app_version")
+                    label(for='app_new_version') App版本号
+                .row
+                    a.waves-effect.waves-light.btn-large.main-color.upload-icon-btn
+                        input.upload-file.none(type='file',name='icon',accept=".png")
+                        i.material-icons.left face
+                        span 上传图标
+                .row
+                    a.waves-effect.waves-light.btn-large.main-color(onclick='onAddApp();')
+                        input(type='button',value='提交')
+        // Scripts
+        script(src="js/jquery-3.2.1.min.js")
+
+        script(src="js/materialize.js")
+
+        script(src="js/init.js")
