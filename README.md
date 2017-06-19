@@ -1,3 +1,18 @@
+### 编写环境
+1.nodejs  v6.10.2
+
+2.IDE webstorm2017.1.1
+
+### 安装步骤
+
+1.下载项目后cd到项目目录下
+
+2.npm install
+
+3.最好用WebStorm打开，因为这里用了Babel进行ES6的转码，配置了FileWatcher
+
+4.直接用WebStrom进行运行,如果有错误，需要配置Babel，让其进行转码即可
+
 ![](http://i.imgur.com/KlzGIb2.png)
 # Express、Nodejs、jade、ReactNative、MySql开发的一套前端系统
 
